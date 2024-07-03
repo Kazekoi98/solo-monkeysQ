@@ -1,20 +1,37 @@
-function startChallenge() {
-    alert('El desafío ha comenzado. ¡Buena suerte, invocador!');
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const players = [
+        {
+            id: 'marcos306',
+            name: 'marcos306#euw',
+            elo: 'Platino IV',
+            opgg: 'https://euw.op.gg/summoner/userName=marcos306',
+            stream: 'https://twitch.tv/marcos306'
+        },
+        {
+            id: 'kuzanero',
+            name: 'kuzanero#euw',
+            elo: 'Oro II',
+            opgg: 'https://euw.op.gg/summoner/userName=kuzanero',
+            stream: 'https://twitch.tv/kuzanero'
+        },
+        {
+            id: 'CocoBoymrs',
+            name: 'CocoBoymrs#9537',
+            elo: 'Diamante I',
+            opgg: 'https://euw.op.gg/summoner/userName=CocoBoymrs',
+            stream: 'https://twitch.tv/CocoBoymrs'
+        }
+    ];
 
-// Datos de ejemplo para la tabla de clasificación
-const leaderboardData = [
-    { position: 1, summoner: 'Invocador1', points: 1500, region: 'lan' },
-    { position: 2, summoner: 'Invocador2', points: 1400, region: 'lan' },
-    { position: 3, summoner: 'Invocador3', points: 1300, region: 'lan' },
-    { position: 4, summoner: 'kuzanero', points: 1250, region: 'euw' } // Añadido kuzanero
-];
+    players.forEach(player => {
+        const playerCard = document.getElementById(player.id);
+        playerCard.querySelector('h2').textContent = player.name;
+        playerCard.querySelector('a').href = player.opgg;
+        playerCard.querySelector('.elo span').textContent = player.elo;
+        playerCard.querySelector('a:nth-of-type(2)').href = player.stream;
+    });
 
-const leaderboardBody = document.getElementById('leaderboardBody');
-
-leaderboardData.forEach(player => {
-    const row = document.createElement('tr');
-    const opggLink = `https://www.op.gg/summoners/${player.region}/${encodeURIComponent(player.summoner)}`;
-    row.innerHTML = `<td>${player.position}</td><td><a href="${opggLink}" target="_blank">${player.summoner}</a></td><td>${player.points}</td>`;
-    leaderboardBody.appendChild(row);
+    document.getElementById('reset-button').addEventListener('click', () => {
+        location.reload();
+    });
 });
