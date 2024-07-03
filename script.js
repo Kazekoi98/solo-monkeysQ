@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     players.forEach(player => {
         const playerCard = document.getElementById(player.id);
-        playerCard.querySelector('h2').textContent = player.name;
+        playerCard.querySelector('h3').textContent = player.name;
         playerCard.querySelector('a').href = player.opgg;
         playerCard.querySelector('.elo span').textContent = player.elo;
         playerCard.querySelector('a:nth-of-type(2)').href = player.stream;
