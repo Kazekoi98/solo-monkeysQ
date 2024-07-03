@@ -36,21 +36,37 @@ header .logo {
 
 main {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
 }
 
-.player-card {
+.players, .rules, .prizes {
     background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.players h2, .rules h2, .prizes h2 {
+    text-align: center;
+}
+
+.player-card {
+    background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 20px;
     text-align: center;
     width: 30%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
 }
 
-.player-card h2 {
+.player-card h3 {
     margin: 0 0 10px 0;
 }
 
